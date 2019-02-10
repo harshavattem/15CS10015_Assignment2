@@ -61,7 +61,7 @@ if(sys.argv[1] == '--train'):
 	train_data = mx.gluon.data.DataLoader(CustomDataset('train', 'train'), batch_size, shuffle=True)
 	test_data = mx.gluon.data.DataLoader(CustomDataset('train', 'validation'), batch_size, shuffle=False)
 
-	epochs = 15
+	epochs = 10
 	num_examples = len(train_data)
 
 
