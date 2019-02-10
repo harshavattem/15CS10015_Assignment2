@@ -14,7 +14,6 @@ if(len(sys.argv) != 2):
 import os
 import numpy as np
 import data_loader
-import module
 from data_loader import DataLoader
 
 from sklearn.linear_model import LogisticRegression
