@@ -127,7 +127,7 @@ if(sys.argv[1] == '--train'):
 
     loss_vanilla = loss_arr.copy()
 
-    filename = os.path.join('weights','b_vanilla.params')
+    filename = os.path.join('../weights','b_vanilla.params')
     net.save_parameters(filename)
 
 
@@ -170,7 +170,7 @@ if(sys.argv[1] == '--train'):
 
     loss_norm_init = loss_arr.copy()
 
-    filename = os.path.join('weights','b_normal.params')
+    filename = os.path.join('../weights','b_normal.params')
     net.save_parameters(filename)
 
 
@@ -211,7 +211,7 @@ if(sys.argv[1] == '--train'):
         
     loss_xavier_init = loss_arr.copy()
 
-    filename = os.path.join('weights','b_xavier.params')
+    filename = os.path.join('../weights','b_xavier.params')
     net.save_parameters(filename)
 
 
@@ -252,7 +252,7 @@ if(sys.argv[1] == '--train'):
         
     loss_ortho_init = loss_arr.copy()
 
-    filename = os.path.join('weights','b_ortho.params')
+    filename = os.path.join('../weights','b_ortho.params')
     net.save_parameters(filename)
 
 
@@ -309,7 +309,7 @@ if(sys.argv[1] == '--train'):
 
     loss_batch_norm = loss_arr.copy()
 
-    filename = os.path.join('weights','b_batch.params')
+    filename = os.path.join('../weights','b_batch.params')
     net.save_parameters(filename)
 
 
@@ -368,7 +368,7 @@ if(sys.argv[1] == '--train'):
 
     loss_dropout1 = loss_arr.copy()
 
-    filename = os.path.join('weights','b_dropout1.params')
+    filename = os.path.join('../weights','b_dropout1.params')
     net.save_parameters(filename)
 
 
@@ -425,7 +425,7 @@ if(sys.argv[1] == '--train'):
 
     loss_dropout4 = loss_arr.copy()
 
-    filename = os.path.join('weights','b_dropout4.params')
+    filename = os.path.join('../weights','b_dropout4.params')
     net.save_parameters(filename)
 
 
@@ -482,7 +482,7 @@ if(sys.argv[1] == '--train'):
 
     loss_dropout6 = loss_arr.copy()
 
-    filename = os.path.join('weights','b_dropout6.params')
+    filename = os.path.join('../weights','b_dropout6.params')
     net.save_parameters(filename)
 
 
@@ -522,7 +522,7 @@ if(sys.argv[1] == '--train'):
 
 
     loss_arr = []
-    lr = .001
+    lr = .0005
     for e in range(epochs):
         cumulative_loss = 0
         for i, (data, label) in enumerate(train_data):
@@ -550,7 +550,7 @@ if(sys.argv[1] == '--train'):
         
     loss_sgd = loss_arr.copy()
 
-    filename = os.path.join('weights','b_sgd.params')
+    filename = os.path.join('../weights','b_sgd.params')
     net.save_parameters(filename)
 
 
@@ -561,7 +561,7 @@ if(sys.argv[1] == '--train'):
 
     net.collect_params().initialize(mx.init.Normal(sigma=.05), ctx=model_ctx, force_reinit=True)
     softmax_cross_entropy = gluon.loss.SoftmaxCrossEntropyLoss()
-    trainer = gluon.Trainer(net.collect_params(),'nag', {'momentum':.1, 'learning_rate':.001})
+    trainer = gluon.Trainer(net.collect_params(),'nag', {'momentum':.1, 'learning_rate':lr})
 
 
     # In[7]:
@@ -593,7 +593,7 @@ if(sys.argv[1] == '--train'):
         
     loss_nest_opt = loss_arr.copy()
 
-    filename = os.path.join('weights','b_nag.params')
+    filename = os.path.join('../weights','b_nag.params')
     net.save_parameters(filename)
 
 
@@ -634,7 +634,7 @@ if(sys.argv[1] == '--train'):
 
     loss_adadelta_opt = loss_arr.copy()
 
-    filename = os.path.join('weights','b_adadelta.params')
+    filename = os.path.join('../weights','b_adadelta.params')
     net.save_parameters(filename)
 
 
@@ -675,7 +675,7 @@ if(sys.argv[1] == '--train'):
         
     loss_adagrad_opt = loss_arr.copy()
 
-    filename = os.path.join('weights','b_adagrad.params')
+    filename = os.path.join('../weights','b_adagrad.params')
     net.save_parameters(filename)
 
 
@@ -716,7 +716,7 @@ if(sys.argv[1] == '--train'):
 
     loss_rmsprop_opt = loss_arr.copy()
 
-    filename = os.path.join('weights','b_rmsprop.params')
+    filename = os.path.join('../weights','b_rmsprop.params')
     net.save_parameters(filename)
 
 
@@ -757,7 +757,7 @@ if(sys.argv[1] == '--train'):
         
     loss_adam_opt = loss_arr.copy()
 
-    filename = os.path.join('weights','b_adam.params')
+    filename = os.path.join('../weights','b_adam.params')
     net.save_parameters(filename)
 
 
@@ -844,7 +844,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_vanilla.params')
+    filename = os.path.join('../weights','b_vanilla.params')
     if not (os.path.isfile(filename)):
         print('No data for Vanilla')
     else:
@@ -855,7 +855,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_normal.params')
+    filename = os.path.join('../weights','b_normal.params')
     if not (os.path.isfile(filename)):
         print('No data for Normal Initialization')
     else:
@@ -866,7 +866,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_xavier.params')
+    filename = os.path.join('../weights','b_xavier.params')
     if not (os.path.isfile(filename)):
         print('No data for Xavier Initialization')
     else:
@@ -877,7 +877,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_ortho.params')
+    filename = os.path.join('../weights','b_ortho.params')
     if not (os.path.isfile(filename)):
         print('No data for Orthogonal Initialization')
     else:
@@ -902,7 +902,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_batch.params')
+    filename = os.path.join('../weights','b_batch.params')
     if not (os.path.isfile(filename)):
         print('No data for Batch Normalization')
     else:
@@ -929,7 +929,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_dropout1.params')
+    filename = os.path.join('../weights','b_dropout1.params')
     if not (os.path.isfile(filename)):
         print('No data for Dropout(0.1)')
     else:
@@ -956,7 +956,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_dropout4.params')
+    filename = os.path.join('../weights','b_dropout4.params')
     if not (os.path.isfile(filename)):
         print('No data for Dropout(0.4)')
     else:
@@ -983,7 +983,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_dropout6.params')
+    filename = os.path.join('../weights','b_dropout6.params')
     if not (os.path.isfile(filename)):
         print('No data for Dropout(0.6)')
     else:
@@ -1007,7 +1007,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_sgd.params')
+    filename = os.path.join('../weights','b_sgd.params')
     if not (os.path.isfile(filename)):
         print('No data for SGD')
     else:
@@ -1018,7 +1018,7 @@ elif(sys.argv[1] == '--test'):
     # In[10]:
 
 
-    filename = os.path.join('weights','b_nag.params')
+    filename = os.path.join('../weights','b_nag.params')
     if not (os.path.isfile(filename)):
         print('No data for Nesterov\'s Accelerated Momentum')
     else:
@@ -1029,7 +1029,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_adadelta.params')
+    filename = os.path.join('../weights','b_adadelta.params')
     if not (os.path.isfile(filename)):
         print('No data for AdaDelta')
     else:
@@ -1040,7 +1040,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_adagrad.params')
+    filename = os.path.join('../weights','b_adagrad.params')
     if not (os.path.isfile(filename)):
         print('No data for AdaGrad')
     else:
@@ -1051,7 +1051,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_rmsprop.params')
+    filename = os.path.join('../weights','b_rmsprop.params')
     if not (os.path.isfile(filename)):
         print('No data for RMSProp')
     else:
@@ -1062,7 +1062,7 @@ elif(sys.argv[1] == '--test'):
     # In[ ]:
 
 
-    filename = os.path.join('weights','b_adam.params')
+    filename = os.path.join('../weights','b_adam.params')
     if not (os.path.isfile(filename)):
         print('No data for Adam')
     else:

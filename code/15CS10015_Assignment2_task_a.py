@@ -111,7 +111,7 @@ if(sys.argv[1] == '--train'):
 	valid_acc1 = valid_acc.copy()
 
 
-	filename = os.path.join('weights','a1.params')
+	filename = os.path.join('../weights','a1.params')
 	net1.save_parameters(filename)
 
 
@@ -158,7 +158,7 @@ if(sys.argv[1] == '--train'):
 	valid_acc2 = valid_acc.copy()
 
 
-	filename = os.path.join('weights','a2.params')
+	filename = os.path.join('../weights','a2.params')
 	net2.save_parameters(filename)
 
 
@@ -197,7 +197,7 @@ elif(sys.argv[1] == '--test'):
 		net1.add(gluon.nn.Dense(layer[3], activation="relu"))
 		net1.add(gluon.nn.Dense(layer[4], activation="relu"))
 		net1.add(gluon.nn.Dense(lout))
-	filename = os.path.join('weights','a1.params')
+	filename = os.path.join('../weights','a1.params')
 	if not (os.path.isfile(filename)):
 		print('No data for NN1')
 	else:
@@ -212,7 +212,7 @@ elif(sys.argv[1] == '--test'):
 		net2.add(gluon.nn.Dense(layer[1], activation="relu"))
 		net2.add(gluon.nn.Dense(layer[2], activation="relu"))
 		net2.add(gluon.nn.Dense(lout))
-	filename = os.path.join('weights','a2.params')
+	filename = os.path.join('../weights','a2.params')
 	if not (os.path.isfile(filename)):
 		print('No data for NN2')
 	else:
