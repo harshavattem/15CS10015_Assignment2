@@ -72,7 +72,7 @@ if(sys.argv[1] == '--train'):
     train_data = mx.gluon.data.DataLoader(CustomDataset('train', 'train'), batch_size, shuffle=True)
     test_data = mx.gluon.data.DataLoader(CustomDataset('train', 'validation'), batch_size, shuffle=False)
 
-    epochs = 2
+    epochs = 10
     num_examples = len(train_data)
 
 
@@ -765,10 +765,10 @@ if(sys.argv[1] == '--train'):
 
 
     # plt.figure(figsize=(15,15))
-    plt.plot(loss_vanilla, linewidth=2, label='Vanilla')
-    plt.plot(loss_norm_init, linewidth=2, label='Normal Initialization')
-    plt.plot(loss_xavier_init, linewidth=2, label='Xavier Initialization')
-    plt.plot(loss_ortho_init, linewidth=2, label='Orthogonal Initialization')
+    plt.plot(loss_vanilla, label='Vanilla')
+    plt.plot(loss_norm_init, label='Normal Initialization')
+    plt.plot(loss_xavier_init, label='Xavier Initialization')
+    plt.plot(loss_ortho_init, label='Orthogonal Initialization')
     plt.legend(fontsize=15)
     plt.title('Initialization Methods Comparison')
     plt.xlabel('Epochs', fontsize=15)
@@ -780,8 +780,8 @@ if(sys.argv[1] == '--train'):
 
 
     # plt.figure(figsize=(15,15))
-    plt.plot(loss_vanilla, linewidth=2, label='Vanilla')
-    plt.plot(loss_batch_norm, linewidth=2, label='Batch Normalization')
+    plt.plot(loss_vanilla, label='Vanilla')
+    plt.plot(loss_batch_norm, label='Batch Normalization')
     plt.legend(fontsize=15)
     plt.title('Normalization Methods Comparison')
     plt.xlabel('Epochs', fontsize=15)
@@ -793,10 +793,10 @@ if(sys.argv[1] == '--train'):
 
 
     # plt.figure(figsize=(15,15))
-    plt.plot(loss_vanilla, linewidth=2, label='Vanilla')
-    plt.plot(loss_dropout1, linewidth=2, label='Dropout(0.1)')
-    plt.plot(loss_dropout4, linewidth=2, label='Dropout(0.4)')
-    plt.plot(loss_dropout6, linewidth=2, label='Dropout(0.6)')
+    plt.plot(loss_vanilla, label='Vanilla')
+    plt.plot(loss_dropout1, label='Dropout(0.1)')
+    plt.plot(loss_dropout4, label='Dropout(0.4)')
+    plt.plot(loss_dropout6, label='Dropout(0.6)')
     plt.legend(fontsize=15)
     plt.title('Dropout Comparison')
     plt.xlabel('Epochs', fontsize=15)
@@ -808,13 +808,13 @@ if(sys.argv[1] == '--train'):
 
 
     # plt.figure(figsize=(15,15))
-    plt.plot(loss_vanilla, linewidth=2, label='Vanilla')
-    plt.plot(loss_sgd, linewidth=2, label='SGD Optimization')
-    plt.plot(loss_nest_opt, linewidth=2, label='Nesterov\'s Optimization')
-    plt.plot(loss_adadelta_opt, linewidth=2, label='AdaDelta Optimization')
-    plt.plot(loss_adagrad_opt, linewidth=2, label='AdaGrad Optimization')
-    plt.plot(loss_rmsprop_opt, linewidth=2, label='RMSProp Optimization')
-    plt.plot(loss_adam_opt, linewidth=2, label='Adam Optimization')
+    plt.plot(loss_vanilla, label='Vanilla')
+    plt.plot(loss_sgd, label='SGD Optimization')
+    plt.plot(loss_nest_opt, label='Nesterov\'s Optimization')
+    plt.plot(loss_adadelta_opt, label='AdaDelta Optimization')
+    plt.plot(loss_adagrad_opt, label='AdaGrad Optimization')
+    plt.plot(loss_rmsprop_opt, label='RMSProp Optimization')
+    plt.plot(loss_adam_opt, label='Adam Optimization')
     plt.legend(fontsize=15)
     plt.title('Optimization Methods Comparison')
     plt.xlabel('Epochs', fontsize=15)
